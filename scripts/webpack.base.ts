@@ -7,11 +7,6 @@ var packageJson = require(path.join(projectConfig.parentDir, 'package.json'));
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let HtmlWebpackDiskPlugin = require('html-webpack-harddisk-plugin');
-const del = require('del');
-
-try{
-  del.sync(path.join(projectConfig.outPath))
-}catch(e){}
 
 let baseConfig: webpack.Configuration = {
   context: projectConfig.sourcePath,

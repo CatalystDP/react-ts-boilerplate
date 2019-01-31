@@ -1,15 +1,8 @@
 # Frontend Boilerplate with React, Redux & TypeScript
 
-A bare minimum react-redux-webpack-typescript boilerplate with TodoMVC example. 
 
-[Live demo](https://rokoroku.github.io/react-redux-typescript-boilerplate)
-
-Note that this project does not include **Server-Side Rendering**, **Static code analysis**, **Testing Frameworks** and other stuffs that makes the package unnecessarily complicated. (e.g. yarn, tslint, jest, ...)  
-If needed, please fork this repository and add your own that meets your requirements.
-
-Ideal for creating React apps from the scratch.
-
-See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
+fork from [react-redux-typescript-boilerplate](https://github.com/rokoroku/react-redux-typescript-boilerplate.git)
+and modify
 
 ## Contains
 
@@ -32,16 +25,16 @@ See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-
 - [x] [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
-## Installation
+## Initialize
 
 ```
-$ npm ci
+$ npm run init:proj
 ```
 
-## Running
+## Development 
 
 ```
-$ npm start
+$ npm run dev
 ```
 
 ## Build
@@ -59,7 +52,24 @@ $ npm run deploy
 ## Format code (using [Prettier](https://github.com/prettier/prettier))
 
 ```
-$ npm run prettier
+$ npm run format
+```
+## Commit (with commitizen)
+
+```
+$ npm run commit
+```
+
+## Release (with standard-version)
+
+```
+$ npm run release
+```
+
+## Clean
+
+```
+$ npm run clean
 ```
 
 # License
