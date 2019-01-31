@@ -83,7 +83,7 @@ let baseConfig: webpack.Configuration = {
         ]
       },
       // static assets
-      { test: /.(html|ejs)$/, use: 'ejs-loader' },
+      { test: /\.(html|ejs)$/, use: 'ejs-loader' },
       // { test: /\.html$/, use: 'html-loader' },
       { test: /\.(a?png|svg)$/, use: 'url-loader?limit=10000' },
       {
