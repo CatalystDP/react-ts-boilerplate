@@ -1,26 +1,25 @@
-var webpack = require('webpack');
-var path = require('path');
-var package = require('./package.json');
+import webpack = require('webpack');
 
-// variables
-var isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
-var sourcePath = path.join(__dirname, './src');
-var outPath = path.join(__dirname, './build');
-
-// plugins
+import * as path from 'path';
+import tsImportPluginFactory = require('ts-import-plugin');
+import projectConfig from './project.config';
+var packageJson = require(path.join(projectConfig.parentDir, 'package.json'));
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+let HtmlWebpackDiskPlugin = require('html-webpack-harddisk-plugin');
+const del = require('del');
 
-module.exports = {
-  context: sourcePath,
-  entry: {
-    app: './main.tsx'
-  },
+try{
+  del.sync(path.join(projectConfig.outPath))
+}catch(e){}
+
+let baseConfig: webpack.Configuration = {
+  context: projectConfig.sourcePath,
+  entry: {},
   output: {
-    path: outPath,
-    filename: isProduction ? '[contenthash].js' : '[hash].js',
-    chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].[hash].js'
+    path: projectConfig.outPath,
+    filename: '[name].js',
+    chunkFilename: '[name].js'
   },
   target: 'web',
   resolve: {
@@ -29,7 +28,7 @@ module.exports = {
     // (jsnext:main directs not usually distributable es6 format, but es6 sources)
     mainFields: ['module', 'browser', 'main'],
     alias: {
-      app: path.resolve(__dirname, 'src/app/')
+      app: path.join(projectConfig.parentDir, 'src/app/')
     }
   },
   module: {
@@ -38,25 +37,34 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: [
-          !isProduction && {
+          !projectConfig.isProduction && {
             loader: 'babel-loader',
             options: { plugins: ['react-hot-loader/babel'] }
           },
-          'ts-loader'
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              getCustomTransformers: () => ({
+                before: [tsImportPluginFactory(/** options */)]
+              }) //按需加载配置
+            }
+          }
         ].filter(Boolean)
       },
       // css
       {
         test: /\.css$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          projectConfig.isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             query: {
               modules: true,
-              sourceMap: !isProduction,
+              sourceMap: !projectConfig.isProduction,
               importLoaders: 1,
-              localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
+              localIdentName: projectConfig.isProduction
+                ? '[hash:base64:5]'
+                : '[local]__[hash:base64:5]'
             }
           },
           {
@@ -72,7 +80,7 @@ module.exports = {
                 }),
                 require('postcss-reporter')(),
                 require('postcss-browser-reporter')({
-                  disabled: isProduction
+                  disabled: projectConfig.isProduction
                 })
               ]
             }
@@ -80,7 +88,8 @@ module.exports = {
         ]
       },
       // static assets
-      { test: /\.html$/, use: 'html-loader' },
+      { test: /.(html|ejs)$/, use: 'ejs-loader' },
+      // { test: /\.html$/, use: 'html-loader' },
       { test: /\.(a?png|svg)$/, use: 'url-loader?limit=10000' },
       {
         test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
@@ -99,55 +108,49 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
-          filename: isProduction ? 'vendor.[contenthash].js' : 'vendor.[hash].js',
+          filename: 'vendor.js',
           priority: -10
         }
       }
     },
-    runtimeChunk: true
+    runtimeChunk: {
+      name:'runtime'
+    }
   },
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false
     }),
-    new WebpackCleanupPlugin(),
     new MiniCssExtractPlugin({
       filename: '[hash].css',
-      disable: !isProduction
+      disable: !projectConfig.isProduction
     }),
     new HtmlWebpackPlugin({
-      template: 'assets/index.html',
-      minify: {
-        minifyJS: true,
-        minifyCSS: true,
-        removeComments: true,
-        useShortDoctype: true,
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true
-      },
-      append: {
-        head: `<script src="//cdn.polyfill.io/v3/polyfill.min.js"></script>`
-      },
+      template: 'template/index.html',
+      filename: path.join(projectConfig.outPath, 'views', 'index.html'),
+      // inject: false
+      alwaysWriteToDisk: true,
+      minify: projectConfig.isProduction
+        ? {
+            // minifyJS: true,
+            // minifyCSS: true,
+            removeComments: true,
+            useShortDoctype: true,
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true
+          }
+        : {},
       meta: {
-        title: package.name,
-        description: package.description,
-        keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined
+        title: packageJson.name,
+        description: packageJson.description,
+        keywords: Array.isArray(packageJson.keywords) ? packageJson.keywords.join(',') : undefined
       }
-    })
+    }),
+    new HtmlWebpackDiskPlugin()
   ],
-  devServer: {
-    contentBase: sourcePath,
-    hot: true,
-    inline: true,
-    historyApiFallback: {
-      disableDotRule: true
-    },
-    stats: 'minimal',
-    clientLogLevel: 'warning'
-  },
   // https://webpack.js.org/configuration/devtool/
-  devtool: isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',
+  devtool: projectConfig.isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',
   node: {
     // workaround for webpack-dev-server issue
     // https://github.com/webpack/webpack-dev-server/issues/60#issuecomment-103411179
@@ -155,3 +158,5 @@ module.exports = {
     net: 'empty'
   }
 };
+
+export default baseConfig;

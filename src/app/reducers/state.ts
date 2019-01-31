@@ -1,10 +1,11 @@
-import { TodoModel } from 'app/models';
+import { IMainAppModel } from '../models';
 
 export interface RootState {
-  todos: RootState.TodoState;
+  // todos: RootState.TodoState;
+  mainAppState: RootState.TMainAppState;
   router?: any;
 }
 
 export namespace RootState {
-  export type TodoState = TodoModel[];
+  export type TMainAppState = IMainAppModel;
 }

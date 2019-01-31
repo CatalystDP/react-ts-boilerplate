@@ -125,13 +125,64 @@
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/@types/anymatch/download/@types/anymatch-1.3.0.tgz#d1d55958d1fccc5527d4aba29fc9c4b942f563ff"
 
+"@types/body-parser@*":
+  version "1.17.0"
+  resolved "http://r.tnpm.oa.com/@types/body-parser/download/@types/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
+  dependencies:
+    "@types/connect" "*"
+    "@types/node" "*"
+
 "@types/classnames@^2.2.7":
   version "2.2.7"
   resolved "http://registry.npm.taobao.org/@types/classnames/download/@types/classnames-2.2.7.tgz#fb68cc9be8487e6ea5b13700e759bfbab7e0fefd"
 
+"@types/connect@*":
+  version "3.4.32"
+  resolved "http://r.tnpm.oa.com/@types/connect/download/@types/connect-3.4.32.tgz#aa0e9616b9435ccad02bc52b5b454ffc2c70ba28"
+  dependencies:
+    "@types/node" "*"
+
+"@types/events@*":
+  version "3.0.0"
+  resolved "http://r.tnpm.oa.com/@types/events/download/@types/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
+
+"@types/express-serve-static-core@*":
+  version "4.16.1"
+  resolved "http://r.tnpm.oa.com/@types/express-serve-static-core/download/@types/express-serve-static-core-4.16.1.tgz#35df7b302299a4ab138a643617bd44078e74d44e"
+  dependencies:
+    "@types/node" "*"
+    "@types/range-parser" "*"
+
+"@types/express@*":
+  version "4.16.1"
+  resolved "http://r.tnpm.oa.com/@types/express/download/@types/express-4.16.1.tgz#d756bd1a85c34d87eaf44c888bad27ba8a4b7cf0"
+  dependencies:
+    "@types/body-parser" "*"
+    "@types/express-serve-static-core" "*"
+    "@types/serve-static" "*"
+
 "@types/history@*", "@types/history@^4.7.2":
   version "4.7.2"
   resolved "http://registry.npm.taobao.org/@types/history/download/@types/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
+
+"@types/http-proxy-middleware@*":
+  version "0.19.2"
+  resolved "http://r.tnpm.oa.com/@types/http-proxy-middleware/download/@types/http-proxy-middleware-0.19.2.tgz#1c44b96487cb2f333102b762c56a8f02241e85bd"
+  dependencies:
+    "@types/connect" "*"
+    "@types/http-proxy" "*"
+    "@types/node" "*"
+
+"@types/http-proxy@*":
+  version "1.16.2"
+  resolved "http://r.tnpm.oa.com/@types/http-proxy/download/@types/http-proxy-1.16.2.tgz#16cb373b52fff2aa2f389d23d940ed4a642349e5"
+  dependencies:
+    "@types/events" "*"
+    "@types/node" "*"
+
+"@types/mime@*":
+  version "2.0.0"
+  resolved "http://r.tnpm.oa.com/@types/mime/download/@types/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
 
 "@types/node@*", "@types/node@^10.12.18":
   version "10.12.19"
@@ -144,6 +195,10 @@
 "@types/q@^1.5.1":
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/@types/q/download/@types/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
+
+"@types/range-parser@*":
+  version "1.2.3"
+  resolved "http://r.tnpm.oa.com/@types/range-parser/download/@types/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
 
 "@types/react-dom@^16.0.11":
   version "16.0.11"
@@ -176,6 +231,13 @@
   version "2.3.1"
   resolved "http://registry.npm.taobao.org/@types/redux-actions/download/@types/redux-actions-2.3.1.tgz#b574569d76df9a0963c421bf509bcf2d0c6b17d3"
 
+"@types/serve-static@*":
+  version "1.13.2"
+  resolved "http://r.tnpm.oa.com/@types/serve-static/download/@types/serve-static-1.13.2.tgz#f5ac4d7a6420a99a6a45af4719f4dcd8cd907a48"
+  dependencies:
+    "@types/express-serve-static-core" "*"
+    "@types/mime" "*"
+
 "@types/tapable@*":
   version "1.0.4"
   resolved "http://registry.npm.taobao.org/@types/tapable/download/@types/tapable-1.0.4.tgz#b4ffc7dc97b498c969b360a41eee247f82616370"
@@ -186,11 +248,32 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/uglifyjs-webpack-plugin@^1.1.0":
+  version "1.1.0"
+  resolved "http://r.tnpm.oa.com/@types/uglifyjs-webpack-plugin/download/@types/uglifyjs-webpack-plugin-1.1.0.tgz#94647396472e1d3e3586e3e2a5c7d1ab41509d20"
+  dependencies:
+    "@types/webpack" "*"
+
+"@types/webpack-dev-server@^3.1.1":
+  version "3.1.1"
+  resolved "http://r.tnpm.oa.com/@types/webpack-dev-server/download/@types/webpack-dev-server-3.1.1.tgz#12ae26194b3e1b8a317559592659921f282583c2"
+  dependencies:
+    "@types/express" "*"
+    "@types/http-proxy-middleware" "*"
+    "@types/serve-static" "*"
+    "@types/webpack" "*"
+
 "@types/webpack-env@1.13.6":
   version "1.13.6"
   resolved "http://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.13.6.tgz#128d1685a7c34d31ed17010fc87d6a12c1de6976"
 
-"@types/webpack@^4.4.23":
+"@types/webpack-merge@^4.1.3":
+  version "4.1.3"
+  resolved "http://r.tnpm.oa.com/@types/webpack-merge/download/@types/webpack-merge-4.1.3.tgz#e6af0f2a0f20a86ac83d7da84a2e454063121ad4"
+  dependencies:
+    "@types/webpack" "*"
+
+"@types/webpack@*", "@types/webpack@^4.4.23":
   version "4.4.24"
   resolved "http://registry.npm.taobao.org/@types/webpack/download/@types/webpack-4.4.24.tgz#75bc301176066f566ec54151b6101c2b45abb8b2"
   dependencies:
@@ -569,6 +652,10 @@ batch@0.6.1:
   version "0.6.1"
   resolved "http://registry.npm.taobao.org/batch/download/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
 
+big.js@^3.1.3:
+  version "3.2.0"
+  resolved "http://r.tnpm.oa.com/big.js/download/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
+
 big.js@^5.2.2:
   version "5.2.2"
   resolved "http://registry.npm.taobao.org/big.js/download/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
@@ -737,7 +824,7 @@ bytes@3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/bytes/download/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
 
-cacache@^11.0.2:
+cacache@^11.0.2, cacache@^11.2.0:
   version "11.3.2"
   resolved "http://registry.npm.taobao.org/cacache/download/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
   dependencies:
@@ -1385,7 +1472,7 @@ defined@^1.0.0:
 
 del@^3.0.0:
   version "3.0.0"
-  resolved "http://registry.npm.taobao.org/del/download/del-3.0.0.tgz#53ecf699ffcbcb39637691ab13baf160819766e5"
+  resolved "http://r.tnpm.oa.com/del/download/del-3.0.0.tgz#53ecf699ffcbcb39637691ab13baf160819766e5"
   dependencies:
     globby "^6.1.0"
     is-path-cwd "^1.0.0"
@@ -1527,6 +1614,13 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+
+ejs-loader@^0.3.1:
+  version "0.3.1"
+  resolved "http://r.tnpm.oa.com/ejs-loader/download/ejs-loader-0.3.1.tgz#280c8e030bd32428c29826f6bbf6b6d0c14f7ca4"
+  dependencies:
+    loader-utils "^0.2.7"
+    lodash "^3.6.0"
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.103:
   version "1.3.109"
@@ -2234,6 +2328,12 @@ html-minifier@^3.5.20:
     relateurl "0.2.x"
     uglify-js "3.4.x"
 
+html-webpack-harddisk-plugin@^1.0.1:
+  version "1.0.1"
+  resolved "http://r.tnpm.oa.com/html-webpack-harddisk-plugin/download/html-webpack-harddisk-plugin-1.0.1.tgz#4fc034d3440ec2a223dbe8fa1a5a2eb905e86fa5"
+  dependencies:
+    mkdirp "^0.5.1"
+
 html-webpack-plugin@^4.0.0-alpha:
   version "4.0.0-beta.5"
   resolved "http://registry.npm.taobao.org/html-webpack-plugin/download/html-webpack-plugin-4.0.0-beta.5.tgz#2c53083c1151bfec20479b1f8aaf0039e77b5513"
@@ -2676,6 +2776,10 @@ json3@^3.3.2:
   version "3.3.2"
   resolved "http://registry.npm.taobao.org/json3/download/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
+json5@^0.5.0:
+  version "0.5.1"
+  resolved "http://r.tnpm.oa.com/json5/download/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+
 json5@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/json5/download/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
@@ -2736,6 +2840,15 @@ loader-runner@^2.3.0:
   version "2.4.0"
   resolved "http://registry.npm.taobao.org/loader-runner/download/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
 
+loader-utils@^0.2.7:
+  version "0.2.17"
+  resolved "http://r.tnpm.oa.com/loader-utils/download/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
+    object-assign "^4.0.1"
+
 loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.1:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/loader-utils/download/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
@@ -2787,6 +2900,10 @@ lodash.union@4.6.0:
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "http://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+
+lodash@^3.6.0:
+  version "3.10.1"
+  resolved "http://r.tnpm.oa.com/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5:
   version "4.17.11"
@@ -4366,6 +4483,10 @@ redux-devtools-extension@^2.13.7:
   version "2.13.7"
   resolved "http://registry.npm.taobao.org/redux-devtools-extension/download/redux-devtools-extension-2.13.7.tgz#14bd7a1a7c8bee7f397beb1116fd16fc9633b752"
 
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "http://r.tnpm.oa.com/redux-thunk/download/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+
 redux@^4.0.0, redux@^4.0.1:
   version "4.0.1"
   resolved "http://registry.npm.taobao.org/redux/download/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
@@ -5065,6 +5186,12 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/trim-right/download/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
+ts-import-plugin@^1.5.5:
+  version "1.5.5"
+  resolved "http://r.tnpm.oa.com/ts-import-plugin/download/ts-import-plugin-1.5.5.tgz#3c57b6f8e42486404f4124146dd44090d98a740c"
+  dependencies:
+    tslib "^1.9.2"
+
 ts-loader@^5.3.3:
   version "5.3.3"
   resolved "http://registry.npm.taobao.org/ts-loader/download/ts-loader-5.3.3.tgz#8b4af042e773132d86b3c99ef0acf3b4d325f473"
@@ -5085,7 +5212,7 @@ ts-node@^8.0.2:
     source-map-support "^0.5.6"
     yn "^3.0.0"
 
-tslib@^1.9.0:
+tslib@^1.9.0, tslib@^1.9.2:
   version "1.9.3"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 
@@ -5108,12 +5235,25 @@ typescript@^3.2.4:
   version "3.2.4"
   resolved "http://registry.npm.taobao.org/typescript/download/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
 
-uglify-js@3.4.x:
+uglify-js@3.4.x, uglify-js@^3.0.0:
   version "3.4.9"
   resolved "http://registry.npm.taobao.org/uglify-js/download/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
+
+uglifyjs-webpack-plugin@^2.1.1:
+  version "2.1.1"
+  resolved "http://r.tnpm.oa.com/uglifyjs-webpack-plugin/download/uglifyjs-webpack-plugin-2.1.1.tgz#6937d7513a37280d4792f1fb536bef35e08e420a"
+  dependencies:
+    cacache "^11.2.0"
+    find-cache-dir "^2.0.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.4.0"
+    source-map "^0.6.1"
+    uglify-js "^3.0.0"
+    webpack-sources "^1.1.0"
+    worker-farm "^1.5.2"
 
 union-value@^1.0.0:
   version "1.0.0"
@@ -5292,7 +5432,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
 
 webpack-cleanup-plugin@^0.5.1:
   version "0.5.1"
-  resolved "http://registry.npm.taobao.org/webpack-cleanup-plugin/download/webpack-cleanup-plugin-0.5.1.tgz#df2d706bd75364c06e65b051186316d674eb96af"
+  resolved "http://r.tnpm.oa.com/webpack-cleanup-plugin/download/webpack-cleanup-plugin-0.5.1.tgz#df2d706bd75364c06e65b051186316d674eb96af"
   dependencies:
     lodash.union "4.6.0"
     minimatch "3.0.3"
