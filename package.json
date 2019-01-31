@@ -1,15 +1,13 @@
 {
-  "name": "react-redux-typescript-boilerplate",
-  "version": "1.0.1",
-  "private": true,
-  "description": "A frontend boilerplate with React, Redux and Typescript",
-  "homepage": "https://rokoroku.github.io/react-redux-typescript-boilerplate",
+  "name": "react-ts-boilerplate",
+  "version": "1.0.0",
+  "description": "react + redux + ts bolierplate",
+  "homepage": "https://github.com/CatalystDP/react-ts-boilerplate",
   "keywords": [
     "react",
     "redux",
     "typescript",
-    "boilerplate",
-    "todomvc"
+    "boilerplate"
   ],
   "main": "index.js",
   "scripts": {
@@ -19,8 +17,8 @@
     "start": "webpack-dev-server --config scripts/webpack.dev.conf.ts --hot --progress --color",
     "dev": "ts-node scripts/server.ts",
     "build": "webpack --config scripts/webpack.prod.conf.ts -p --progress --colors",
-    "build:test": "webpack --config webpack.base.ts",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "init:proj":""
   },
   "license": "MIT",
   "devDependencies": {
