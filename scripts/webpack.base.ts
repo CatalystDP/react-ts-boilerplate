@@ -124,6 +124,17 @@ let baseConfig: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: 'template/index.html',
       filename: path.join(projectConfig.outPath, 'views', 'index.html'),
+      templateParameters: (compilation: any, assets: any, options: any) => {
+        return {
+          compilation: compilation,
+          webpack: compilation.getStats().toJson(),
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            files: assets,
+            options: options
+          }
+        };
+      },// FIX for variable undefined
       // inject: false
       alwaysWriteToDisk: true,
       minify: projectConfig.isProduction
