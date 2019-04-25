@@ -40,6 +40,11 @@ export class App extends React.Component<App.Props> {
   };
   render() {
     // const { todos, actions, filter } = this.props;
-    return <div onClick={this.handleClick}>{this.props.mainAppState.text}</div>;
+    return (
+      <div onClick={this.handleClick}>
+        {this.props.mainAppState.text}
+        <span>hello world</span>
+      </div>
+    );
   }
 }

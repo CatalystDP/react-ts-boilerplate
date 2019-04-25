@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "target": "es5",
+    "target": "esnext",
+    "module": "esnext",
     "jsx": "react",
-    // "module": "es6",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
     "declaration": false,
     "removeComments": true,
     "noImplicitReturns": true,

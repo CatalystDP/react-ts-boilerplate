@@ -1,12 +1,12 @@
-import webpack = require('webpack');
-
+import * as webpack from 'webpack';
 import * as path from 'path';
-import tsImportPluginFactory = require('ts-import-plugin');
+import tsImportPluginFactory from 'ts-import-plugin/lib';
 import projectConfig from './project.config';
 var packageJson = require(path.join(projectConfig.parentDir, 'package.json'));
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let HtmlWebpackDiskPlugin = require('html-webpack-harddisk-plugin');
+const WriteToFilePlugin = require('write-file-webpack-plugin');
 
 let baseConfig: webpack.Configuration = {
   context: projectConfig.sourcePath,
@@ -32,9 +32,8 @@ let baseConfig: webpack.Configuration = {
       {
         test: /\.tsx?$/,
         use: [
-          !projectConfig.isProduction && {
-            loader: 'babel-loader',
-            options: { plugins: ['react-hot-loader/babel'] }
+          {
+            loader:'babel-loader'
           },
           {
             loader: 'awesome-typescript-loader',
@@ -109,7 +108,7 @@ let baseConfig: webpack.Configuration = {
       }
     },
     runtimeChunk: {
-      name:'runtime'
+      name: 'runtime'
     }
   },
   plugins: [
@@ -134,7 +133,7 @@ let baseConfig: webpack.Configuration = {
             options: options
           }
         };
-      },// FIX for variable undefined
+      }, // FIX for variable undefined
       // inject: false
       alwaysWriteToDisk: true,
       minify: projectConfig.isProduction
@@ -153,7 +152,8 @@ let baseConfig: webpack.Configuration = {
         keywords: Array.isArray(packageJson.keywords) ? packageJson.keywords.join(',') : undefined
       }
     }),
-    new HtmlWebpackDiskPlugin()
+    new HtmlWebpackDiskPlugin(),
+    new WriteToFilePlugin()    
   ],
   // https://webpack.js.org/configuration/devtool/
   devtool: projectConfig.isProduction ? 'hidden-source-map' : 'cheap-module-eval-source-map',

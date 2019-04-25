@@ -1,7 +1,6 @@
 import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
 import baseConfig from './webpack.base';
-import * as reactHotLoader from 'react-hot-loader';
 import * as path from 'path';
 import projectConfig from './project.config';
 

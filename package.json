@@ -14,17 +14,20 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run clean && ts-node scripts/server.ts",
-    "build": "npm run clean && webpack --config scripts/webpack.prod.conf.ts -p --progress --colors",
+    "dev": "npm run clean && cross-env process.env.TS_NODE_PROJECT=tsconfig.scripts.json ts-node scripts/server.ts",
+    "build": "npm run clean && cross-env process.env.TS_NODE_PROJECT=tsconfig.scripts.json  ts-node  ./node_modules/.bin/webpack --config scripts/webpack.prod.conf.ts -p --progress --colors",
     "format": "prettier --write \"src/**/*.{ts,js,tsx,css}\"",
     "clean": "rimraf ./dist",
     "init:proj": "rimraf .git",
     "commit": "npm run format && git add . && git cz",
-    "release":"standard-version"
+    "release": "standard-version"
   },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "@types/classnames": "^2.2.7",
     "@types/history": "^4.7.2",
     "@types/node": "^10.12.18",
@@ -41,6 +44,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "commitizen": "^3.0.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "cz-conventional-changelog": "^2.1.0",
     "del": "^3.0.0",
@@ -66,6 +70,7 @@
     "ts-import-plugin": "^1.5.5",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.2.4",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
@@ -73,9 +78,11 @@
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "write-file-webpack-plugin": "^4.5.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.4.3",
     "classnames": "^2.2.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
